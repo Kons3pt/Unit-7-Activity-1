@@ -1,7 +1,16 @@
+from random import randint
 from tkinter import Button, Entry, Label, Tk
 
 window = Tk()
 window.geometry("450x800")
+
+#making initial variable, I am assuming the start a thread button is what you wanted
+#for part 3
+chosenNumber = ""
+
+#I dont fully understand how to use the grid() method so my buttons arent exactly how I 
+#would have wanted them to be
+
 label1 = Label(text="Caden's Number Generator",
                width=20,
                bg="white",
@@ -32,7 +41,7 @@ button7.grid(row=2, column=7)
 
 #text1.place(x=65, y=50)
 #text1.insert(0, "Please enter a number")
-chosenNumber = 11
+
 label2 = Label(text=chosenNumber,
                width=6,
                height=3,
@@ -40,8 +49,14 @@ label2 = Label(text=chosenNumber,
                fg="blue",
                font=("arial", 30))
 label2.grid(row=6, column=4)
-button8 = Button(text="Generate!", width=15, height=2, bg='white', fg="blue")
+generateButton = Button(text="Generate!",
+                        width=15,
+                        height=2,
+                        bg='white',
+                        fg="blue",
+                       command=generate)
 
-button8.grid(row=7, column=4)
+generateButton.grid(row=7, column=4)
+
 #needs to be at end
 window.mainloop()
