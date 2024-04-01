@@ -32,7 +32,7 @@ button7.grid(row=2, column=7)
 
 #text1.place(x=65, y=50)
 #text1.insert(0, "Please enter a number")
-chosenNumber = 12
+chosenNumber = 11
 label2 = Label(text=chosenNumber,
                width=6,
                height=3,
