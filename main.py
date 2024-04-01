@@ -6,20 +6,55 @@ window.geometry("450x800")
 
 #making initial variable, I am assuming the start a thread button is what you wanted
 #for part 3
-chosenNumber = ""
+chosenNumber = 1
+randomNumber = ""
 
-#I dont fully understand how to use the grid() method so my buttons arent exactly how I 
+
+def updateLabelText():
+  label2.config(text=chosenNumber)
+
+
+#I dont fully understand how to use the grid() method so my buttons arent exactly how I
 #would have wanted them to be
+def add2():
+  global chosenNumber
+  chosenNumber = 2
+  print("2 added")
+
+
+def add4():
+  global chosenNumber
+  chosenNumber = 4
+  print("4 added")
+
+
+def generate():
+  global randomNumber
+  randomNumber = randint(1, chosenNumber)
+  print("number generated")
+  print(randomNumber)
+
 
 label1 = Label(text="Caden's Number Generator",
                width=20,
                bg="white",
                fg="blue")
 label1.grid(row=0, column=4)
-button1 = Button(text="2", fg="white", bg="lightgrey", width=2, height=1)
+button1 = Button(text="2",
+                 fg="white",
+                 bg="lightgrey",
+                 width=2,
+                 height=1,
+                 command=lambda: (add2(), updateLabelText()))
 
 button1.grid(row=2, column=1)
-button2 = Button(text="4", fg="white", bg="lightgrey", width=2, height=1)
+
+button2 = Button(text="4",
+                 fg="white",
+                 bg="lightgrey",
+                 width=2,
+                 height=1,
+                 command=add4)
 
 button2.grid(row=2, column=2)
 button3 = Button(text="6", fg="white", bg="lightgrey", width=2, height=1)
@@ -42,7 +77,8 @@ button7.grid(row=2, column=7)
 #text1.place(x=65, y=50)
 #text1.insert(0, "Please enter a number")
 
-label2 = Label(text=chosenNumber,
+label2 = Label(window,
+               text=chosenNumber,
                width=6,
                height=3,
                bg="white",
@@ -54,9 +90,16 @@ generateButton = Button(text="Generate!",
                         height=2,
                         bg='white',
                         fg="blue",
-                       command=generate)
+                        command=generate)
 
 generateButton.grid(row=7, column=4)
+label3 = Label(text=randomNumber,
+               width=6,
+               height=3,
+               bg="white",
+               fg="blue",
+               font=("arial", 30))
+label3.grid(row=8, column=4)
 
 #needs to be at end
 window.mainloop()
